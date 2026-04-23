@@ -24,13 +24,13 @@ jobs:
         with:
           flutter-version: '3.19.0'
 
-      - name: Reconstruct Project  # Missing android folder toiri korbe
+      - name: Reconstruct Project
         run: flutter create --project-name=ff_tournament . --platforms=android
 
       - name: Install Dependencies
         run: flutter pub get
 
-      -       - name: Build APK
+      - name: Build APK
         run: flutter build apk --release
 
       - name: Upload APK
@@ -38,3 +38,4 @@ jobs:
         with:
           name: ff-tournament-apk
           path: build/app/outputs/flutter-apk/app-release.apk
+          
