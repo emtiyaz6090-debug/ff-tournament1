@@ -1,4 +1,4 @@
-  name: Build APK
+name: Build APK
 
 on:
   push:
@@ -20,9 +20,10 @@ jobs:
           java-version: '17'
 
       - name: Setup Flutter
-        uses: subosito/flutter-action@v4
+        uses: subosito/flutter-action@v2 # Note: flutter-action er jonno v2 stable, v4 ekhon-o proyojon nei
         with:
           flutter-version: '3.19.0'
+          cache: true # Build fast korar jonno cache true kora bhalo
 
       - name: Install Dependencies
         run: flutter pub get
@@ -35,3 +36,4 @@ jobs:
         with:
           name: ff-tournament-apk
           path: build/app/outputs/flutter-apk/app-release.apk
+          
